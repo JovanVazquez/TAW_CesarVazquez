@@ -22,14 +22,6 @@ class CRUD extends Conexion{
 
 	}
 
-	//SE OBTIENEN LOS TUTORES
-
-	function getAlumnosModel(){
-		$stmt = Conexion::conectar()->prepare("SELECT nombre FROM ALUMNOS");
-		$stmt->execute();
-		return $stmt->fetchAll();
-	}
-
 	#REGISTRO DE USUARIOS
 	public function registroAlumnoModel($datosModel){
 
