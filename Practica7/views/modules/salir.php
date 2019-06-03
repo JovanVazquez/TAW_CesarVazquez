@@ -1,10 +1,14 @@
 <?php
 
-session_start();
-setcookie("nivel", "", time()-3600);
-unset($_COOKIE["nivel"]);
+//session_start();
 session_destroy();
+//se confirma el agregado y se redirecciona la pagina
+echo '<script> alert("Haz cerrado Sesion") </script>';
+echo '<script> window.location = "index.php"; </script>';
 
 ?>
-
-<h1>Ha salido de la aplicacion</h1>
+<!--div class="modal-dialog">
+	<div class="loginmodal-container">
+		<h1>¡Haz salido de la aplicación!</h1>
+	</div>
+</div-->

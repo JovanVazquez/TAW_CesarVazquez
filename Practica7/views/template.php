@@ -5,19 +5,7 @@
 	<meta charset="UTF-8">
 	<title>Template</title>
 
-	<link rel="stylesheet" href="./views/css/foundation.css" />
-	<link href="./views/css/select2.min.css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="./views/css/datatables.min.css"/>
 
-	
-	
-	<script src="./views/js/vendor/jquery.js"></script>
-    <script src="./views/js/vendor/modernizr.js"></script>
-	<script src="./views/js/select2.min.js"></script>
-	<script type="text/javascript" src="./views/js/datatables/datatables.min.js"></script>
-
-
-    
 	<style>
 
 		nav{
@@ -25,7 +13,7 @@
 			margin:auto;
 			width:100%;
 			height:auto;
-			background:black;
+			background:#009C8A;
 		}
 
 		nav ul{
@@ -37,78 +25,135 @@
 
 		nav ul li{
 			display:inline-block;
-			width:24%;
-			line-height: 50px;
+			width:15%;
+			line-height: 70px;
 			list-style: none;
 		}
 
 		nav ul li a{
 			color:white;
 			text-decoration: none;
+		}@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+		/****** LOGIN MODAL ******/
+		.loginmodal-container {
+		  padding: 30px;
+		  max-width: 350px;
+		  width: 100% !important;
+		  background-color: #F7F7F7;
+		  margin: 0 auto;
+		  border-radius: 2px;
+		  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+		  overflow: hidden;
+		  font-family: roboto;
 		}
 
-		section{
-			position: center;
-			margin: auto;
-			width:65%;
+		.loginmodal-container h1 {
+		  text-align: center;
+		  font-size: 1.8em;
+		  font-family: roboto;
 		}
 
-		section h1{
-			position: relative;
-			margin: auto;
-			padding:10px;
-			text-align: center;
+		.loginmodal-container input[type=submit] {
+		  width: 100%;
+		  display: block;
+		  margin-bottom: 10px;
+		  position: relative;
 		}
 
-		section form{
-			position:relative;
-			margin:auto;
-			width:100%;
+
+		.loginmodal-container input[type=text], input[type=password], input[type=email], input[type=number] {
+		  height: 44px;
+		  font-size: 16px;
+		  width: 100%;
+		  margin-bottom: 10px;
+		  -webkit-appearance: none;
+		  background: #fff;
+		  border: 1px solid #d9d9d9;
+		  border-top: 1px solid #c0c0c0;
+		  /* border-radius: 2px; */
+		  padding: 0 8px;
+		  box-sizing: border-box;
+		  -moz-box-sizing: border-box;
 		}
 
-		section form input{
-			display:inline-block;
-			padding:10px;
-			width:95%;
-			margin:5px;
+		.loginmodal-container input[type=text]:hover, input[type=password]:hover, input[type=email]:hover, input[type=number]:hover {
+		  border: 1px solid #b9b9b9;
+		  border-top: 1px solid #a0a0a0;
+		  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+		  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+		  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
 		}
 
-		section form input[type="submit"]{
-			position:relative;
-			margin:20px auto;
-			left:4.5%;
-
+		.loginmodal {
+		  text-align: center;
+		  font-size: 14px;
+		  font-family: 'Arial', sans-serif;
+		  font-weight: 700;
+		  height: 36px;
+		  padding: 0 8px;
+		/* border-radius: 3px; */
+		/* -webkit-user-select: none;
+		  user-select: none; */
 		}
 
-		table{
-			width:100%;
+		.loginmodal-submit {
+		  /* border: 1px solid #3079ed; */
+		  border: 0px;
+		  color: #fff;
+		  text-shadow: 0 1px rgba(0,0,0,0.1); 
+		  background-color: #4d90fe;
+		  padding: 17px 0px;
+		  font-family: roboto;
+		  font-size: 14px;
+		  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
 		}
 
-		td {
-		  vertical-align: baseline;
+		.loginmodal-submit:hover {
+		  /* border: 1px solid #2f5bb7; */
+		  border: 0px;
+		  text-shadow: 0 1px rgba(0,0,0,0.3);
+		  background-color: #357ae8;
+		  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
 		}
 
-		
+		.loginmodal-container a {
+		  text-decoration: none;
+		  color: #666;
+		  font-weight: 400;
+		  text-align: center;
+		  display: inline-block;
+		  opacity: 0.6;
+		  transition: opacity ease 0.5s;
+		} 
+
+		.login-help{
+		  font-size: 12px;
+		}
+		  
 	</style>
 
 </head>
+
 <body>
 
-<?php include "modules/navegacion.php"; ?>
-
-<section>
-<?php 
-	ob_start();
-	
-	$mvc = new MvcController();
-	$mvc -> enlacesPaginasController();
+<?php
+	if(isset($_GET['action'])){
+		if($_GET['action'] != 'fallo'){
+			include "modules/navegacion.php";	
+		}	
+	}  
 ?>
 
-</section>
+
+<section>
+
+<?php 
+
+$mvc = new MvcController();
+$mvc -> enlacesPaginasController();
+
+ ?>
 </body>
-<script>
-	$(document).ready( function () {
-	    $('#table').DataTable();
-	} );		
-</script>
+
 </html>

@@ -1,47 +1,57 @@
 <?php
 
+//se verifica que la sesion este iniciada para acceder a este apartado
+if(!$_SESSION["validar"]){
 
-session_start();
+	header("location:index.php");
 
-if(!$_SESSION["validar"] || !isset($_COOKIE['nivel']) || $_COOKIE['nivel']!="1"){
-	header("location:index.php?action=ingresar");
 	exit();
+
 }
 
+include_once('bootstrap/link1.php');
+
 ?>
+<!-- START PAGE CONTENT -->
 
-<h1>ALUMNOS</h1>
-<td><a href="index.php?action=registro_alumno"><button class="success">Agregar Nuevo Alumno</button></a></td>
-	<table id="table" border="0">
-		<thead>
-			<tr>
-				<th>Matricula</th>
-				<th>Nombre</th>
-				<th>Carrera</th>
-				<th>Tutor</th>
-				<th>¿Editar?</th>
-				<th>¿Eliminar?</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php
+<div class="container" style="width: 80%;">
+	<div class="row">
+	    <div class="col-sm-12">
+	        <div class="table-responsive m-b-20">
+	            <h1>ALUMNOS</h1>
+	            <!--Se imprime el reporte de la tabla de alumnos-->
+	            <table id="datatable" class="table table-striped table-bordered">
+	                <thead>
+	                <tr>
+						<th>Matricula</th>
+						<th>Nombre</th>
+						<th>Carrera</th>
+						<th></th>
+						<th></th>
+					</tr>
+	                </thead>
 
-			$vistaAlumno = new MvcController();
-			$vistaAlumno -> vistaAlumnosController();
-			$vistaAlumno -> borrarAlumnoController();
 
-			?>
+	                <tbody>
+	                <?php
 
-		</tbody>
-	</table>
+	                //se llama al controlador de la vista del formulario
+					$vistaUsuario = new MvcController();
+					$vistaUsuario -> vistaAlumnosController();
+
+					?>
+	                </tbody>
+	            </table>
+	        </div>
+	    </div>
+	</div>
+</div>
 <?php
 
-if(isset($_GET["action"])){
-	if($_GET["action"] == "cambio"){
-		echo "Cambio Exitoso";
-	}
-}
+include_once('bootstrap/link2.php');
 
 ?>
+
+
 
 
