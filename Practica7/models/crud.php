@@ -30,7 +30,7 @@ class CRUD extends Conexion{
 		$ex->bindParam(':matricula', $datosModel['matricula'], PDO::PARAM_INT);
 		$ex->execute();
 		$ex = $ex->fetchColumn();
-
+			/*
 		if($ex == 0){
 			//se obtiene el id de la carrera segun la eleccion
 			$nombre_carrera = Conexion::conectar()->prepare("SELECT id FROM CARRERAS WHERE nombre = :nombre_carrera");
@@ -54,7 +54,7 @@ class CRUD extends Conexion{
 		else{
 			return "existe";
 		}
-
+			*/
 	}
 
 	public function vistaAlumnosModel(){
