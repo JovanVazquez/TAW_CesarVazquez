@@ -250,6 +250,20 @@ class CRUD extends Conexion{
 		$borra->close();
 
 	}
+	public function vistaMateriasModel(){
+
+
+		$stmt = Conexion::conectar()->prepare(
+			"SELECT a.matricula as matricula, a.nombre as nombre, c.nombre as carrera
+			FROM ALUMNOS as a 
+			INNER JOIN CARRERAS as c ON a.carrera = c.id");
+		
+		$stmt->execute();
+
+		return $stmt->fetchAll();
+
+		$stmt->close();
+	}
 
 }
 

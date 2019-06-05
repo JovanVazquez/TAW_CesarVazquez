@@ -355,6 +355,24 @@ class MvcController{
 		}
 
 	}
+	public function vistaMateriasController(){
+
+		$respuesta = CRUD::vistaMateriasModel();
+
+		foreach($respuesta as $row => $item){
+		echo'<tr>
+				<td>'.$item["id"].'</td>
+				<td>'.$item["nombre"].'</td>
+				<td>'.$item["encaragdo"].'</td>
+				<td>'.$item["turno"].'</td>
+				<td>'.$item["creditos"].'</td>
+				<td><a href="index.php?action=maestro_editar&id='.$item["id"].'"><button>Editar</button></a></td>
+				<td><a href="index.php?action=maestro_borrar&id='.$item["id"].'"><button>Eliminar</button></a></td>
+		    </tr>';
+
+		}
+
+	}
 	
 }
 
