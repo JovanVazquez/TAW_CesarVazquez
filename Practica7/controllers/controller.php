@@ -366,8 +366,8 @@ class MvcController{
 				<td>'.$item["encaragdo"].'</td>
 				<td>'.$item["turno"].'</td>
 				<td>'.$item["creditos"].'</td>
-				<td><a href="index.php?action=maestro_editar&id='.$item["id"].'"><button>Editar</button></a></td>
-				<td><a href="index.php?action=maestro_borrar&id='.$item["id"].'"><button>Eliminar</button></a></td>
+				<td><a href="index.php?action=materias_editar&id='.$item["id"].'"><button>Editar</button></a></td>
+				<td><a href="index.php?action=materias                                                                                                                 _borrar&id='.$item["id"].'"><button>Eliminar</button></a></td>
 		    </tr>';
 
 		}
